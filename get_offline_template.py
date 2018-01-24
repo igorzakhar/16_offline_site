@@ -2,11 +2,7 @@ import os
 import urllib.request
 import urllib.parse
 
-
 from bs4 import BeautifulSoup
-
-
-url = 'https://getbootstrap.com/docs/3.3/examples/jumbotron/'
 
 
 def fetch_html(url):
