@@ -29,14 +29,14 @@ def get_links_from_html(html, url):
 
 def retrieve_files(links):
     opener = urllib.request.build_opener()
-    opener.addheaders = [('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]
+    opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
     urllib.request.install_opener(opener)
     for link in links:
         filename = link.split('/')[-1]
         ext = filename.split('.')[-1]
-        save_path = ext + '/' + filename
+        save_path = '{}/{}'.format(ext, filename)
         if (ext != 'js') and (ext != 'css'):
-            continue
+            urllib.request.urlretrieve(link, filename)
         else:
             urllib.request.urlretrieve(link, save_path)
 
@@ -50,7 +50,7 @@ def make_dir():
 
 def main():
     make_dir()
-    url = 'https://getbootstrap.com/docs/3.3/examples/jumbotron/'
+    url = 'https://v4-alpha.getbootstrap.com/examples/jumbotron/'
     html = fetch_html(url)
     links = get_links_from_html(html, url)
     retrieve_files(links)
