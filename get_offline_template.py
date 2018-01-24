@@ -1,5 +1,8 @@
+import os
 import urllib.request
 import urllib.parse
+
+
 from bs4 import BeautifulSoup
 
 
@@ -28,8 +31,20 @@ def get_links_from_html(html, url):
     return links
 
 
-if __name__ == '__main__':
+def make_dir():
+    dirs = ['js', 'css']
+    for dir in dirs:
+        if not os.path.exists(dir):
+            os.mkdir(dir)
+
+
+def main():
+    make_dir()
     url = 'https://getbootstrap.com/docs/3.3/examples/jumbotron/'
     html = fetch_html(url)
     links = get_links_from_html(html, url)
     print(links)
+
+
+if __name__ == '__main__':
+    main()
