@@ -47,6 +47,11 @@ def make_dir():
             os.mkdir(dir)
 
 
+def save_index_file(soup):
+    with open('index.html', 'w') as file:
+        file.write(str(soup.prettify()))
+
+
 def main():
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
@@ -58,6 +63,7 @@ def main():
     retrieve_js_files(soup, url)
     retrieve_css_files(soup, url)
     retrieve_favicion(soup, url)
+    save_index_file(soup)
 
 
 if __name__ == '__main__':
