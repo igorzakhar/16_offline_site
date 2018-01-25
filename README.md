@@ -1,7 +1,11 @@
-# New Site Template
+# Сайт в оффлайн
 
-[TODO. There will be project description]
+Скрипт ```get_offline_template.py``` скачивает и сохраняет html шаблон для работы offline. Так же извлекаются все внешние зависимости, такие как таблицы стилей(```.css```), скрипты (```.js```), favicon(```.ico```). Данные файлы размещаются в соответсвующих директориях (```css/```, ```js/```). Результирующий  html-документ сохраняется в файле ```index.html```.   
 
-# Project Goals
+За основу взят шаблон Bootstrap: [https://v4-alpha.getbootstrap.com/examples/jumbotron/](https://v4-alpha.getbootstrap.com/examples/jumbotron/)
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+
+
+# Цели проекта
+
+Код написан для образовательных целей. Учебный курс для веб-разработчиков - [DEVMAN.org](https://devman.org)
