@@ -4,6 +4,14 @@
 
 За основу взят шаблон Bootstrap: [https://v4-alpha.getbootstrap.com/examples/jumbotron/](https://v4-alpha.getbootstrap.com/examples/jumbotron/)
 
+# Установка
+
+Для запуска программы требуется установленный Python 3.5.  
+Используйте команду pip для установки сторонних библиотек из файла зависимостей (или pip3 если есть конфликт с предустановленным Python 2):
+```
+pip install -r requirements.txt # В качестве альтернативы используйте pip3
+```
+Рекомендуется устанавливать зависимости в виртуальном окружении, используя [virtualenv](https://github.com/pypa/virtualenv), [virtualenvwrapper](https://pypi.python.org/pypi/virtualenvwrapper) или [venv](https://docs.python.org/3/library/venv.html).
 
 
 # Цели проекта
