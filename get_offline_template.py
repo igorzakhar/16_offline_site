@@ -25,7 +25,10 @@ def retrieve_js_files(script_tags, url):
         filename = abs_link_js.split('/')[-1]
         save_path = 'js/' + filename
         js_link.attrs['src'] = save_path
+    try:
         urllib.request.urlretrieve(abs_link_js, save_path)
+    except urllib.error.HTTPError as error:
+        print("Error while retrieving css files: ", error)
 
 
 def retrieve_css_files(soup, url):
@@ -35,7 +38,10 @@ def retrieve_css_files(soup, url):
         filename = abs_link_css.split('/')[-1]
         save_path = 'css/' + filename
         css_link.attrs['href'] = save_path
+    try:
         urllib.request.urlretrieve(abs_link_css, save_path)
+    except urllib.error.HTTPError as error:
+        print("Error while retrieving css files: ", error)
 
 
 def retrieve_favicion(soup, url):
@@ -44,7 +50,10 @@ def retrieve_favicion(soup, url):
     abs_favicon_link = urllib.parse.urljoin(url, favicon_link)
     filename = favicon_link.split('/')[-1]
     favicon.attrs['href'] = filename
-    urllib.request.urlretrieve(abs_favicon_link, filename)
+    try:
+        urllib.request.urlretrieve(abs_favicon_link, filename)
+    except urllib.error.HTTPError as error:
+        print("Error while retrieving favicon: ", error)
 
 
 def make_dir():
