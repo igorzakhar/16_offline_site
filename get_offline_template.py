@@ -1,4 +1,5 @@
 import os
+import re
 import urllib.request
 import urllib.parse
 
@@ -11,7 +12,13 @@ def fetch_html(url):
     return webpage
 
 
-def retrieve_js_files(soup, url):
+def get_script_tags(webpage):
+    script_tags = re.findall(r'<script\b[^>]*><\/script>', str(webpage))
+    return ''.join(script_tags)
+
+
+def retrieve_js_files(script_tags, url):
+    soup = BeautifulSoup(script_tags, 'lxml')
     js_links = soup.find_all('script', {'src': True})
     for js_link in js_links:
         abs_link_js = urllib.parse.urljoin(url, js_link.get('src'))
@@ -57,10 +64,11 @@ def main():
     opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
     urllib.request.install_opener(opener)
     make_dir()
-    url = 'https://v4-alpha.getbootstrap.com/examples/jumbotron/'
+    url = 'https://getbootstrap.com/docs/3.3/examples/jumbotron/'
     webpage = fetch_html(url)
+    script_tags = get_script_tags(webpage)
     soup = BeautifulSoup(webpage, 'lxml')
-    retrieve_js_files(soup, url)
+    retrieve_js_files(script_tags, url)
     retrieve_css_files(soup, url)
     retrieve_favicion(soup, url)
     save_index_file(soup)
