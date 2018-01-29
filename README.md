@@ -2,7 +2,7 @@
 
 Скрипт ```get_offline_template.py``` скачивает и сохраняет html шаблон для работы offline. Так же извлекаются все внешние зависимости, такие как таблицы стилей(```.css```), скрипты (```.js```), favicon(```.ico```). Данные файлы размещаются в соответсвующих директориях (```css/```, ```js/```). Результирующий  html-документ сохраняется в файле ```index.html```.   
 
-За основу взят шаблон Bootstrap: [https://v4-alpha.getbootstrap.com/examples/jumbotron/](https://v4-alpha.getbootstrap.com/examples/jumbotron/)
+За основу взят шаблон Bootstrap: [http://getbootstrap.com/examples/jumbotron/](http://getbootstrap.com/examples/jumbotron/)
 
 # Установка
 
